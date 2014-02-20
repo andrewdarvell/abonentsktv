@@ -26,7 +26,11 @@ public class Main {
 		abonent.setPassNumber("458324");
 
 		try{
-			Factory.getInstance().getAbonentDAO().addAbonent(abonent);
+			//Factory.getInstance().getAbonentDAO().addAbonent(abonent);
+			Abonent abonent1 = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
+			log.info(abonent1.getLastName());
+			//abonent1.setLastName("Петров");
+			//Factory.getInstance().getAbonentDAO().updateAbonent(abonent);
 		}catch (Exception e){
 			log.error(e.getMessage());
 		}

@@ -8,6 +8,7 @@ import ru.darvell.ktv.util.HibernateUtil;
 
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 
 public class AbonentDAOImpl implements AbonentDAO{
 	@Override
@@ -16,22 +17,32 @@ public class AbonentDAOImpl implements AbonentDAO{
 		session.beginTransaction();
 		session.save(abonent);
 		session.getTransaction().commit();
-
 	}
 
 	@Override
 	public void updateAbonent(Abonent abonent) throws SQLException {
-		//To change body of implemented methods use File | Settings | File Templates.
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.update(abonent);
+		session.getTransaction().commit();
 	}
 
 	@Override
-	public void getAbonentById(Long abonentId) throws SQLException {
-		//To change body of implemented methods use File | Settings | File Templates.
+	public Abonent getAbonentById(Long abonentId) throws SQLException {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Abonent abonent = (Abonent) session.load(Abonent.class,abonentId);
+		session.getTransaction().commit();
+		return abonent;
 	}
 
 	@Override
 	public Collection getAllAbonents() throws SQLException {
-		return null;  //To change body of implemented methods use File | Settings | File Templates.
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		List abonens = session.createCriteria(Abonent.class).list();
+		session.getTransaction().commit();
+		return abonens;
 	}
 
 	@Override
