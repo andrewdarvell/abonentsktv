@@ -29,8 +29,8 @@ public class AbonentDAOImpl implements AbonentDAO{
 
 	@Override
 	public Abonent getAbonentById(Long abonentId) throws SQLException {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		//session.beginTransaction();
 		try{
 			return (Abonent) session.load(Abonent.class,abonentId);
 		} finally {
