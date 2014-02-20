@@ -2,9 +2,9 @@ package ru.darvell.ktv.main;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
-import org.hibernate.Session;
+import ru.darvell.ktv.dao.Factory;
 import ru.darvell.ktv.logic.Abonent;
-import ru.darvell.ktv.util.HibernateUtil;
+
 
 public class Main {
 
@@ -19,10 +19,17 @@ public class Main {
 		log.info("Start");
 
 		Abonent abonent = new Abonent();
-		abonent.setFirstName("Иванов");
-		abonent.setLastName("Иван");
-		abonent.setMiddleName("Иванович");
+		abonent.setFirstName("Сидор");
+		abonent.setLastName("Сидорович");
+		abonent.setMiddleName("Сидорский");
+		abonent.setPassSer("4322");
+		abonent.setPassNumber("458324");
 
+		try{
+			Factory.getInstance().getAbonentDAO().addAbonent(abonent);
+		}catch (Exception e){
+			log.error(e.getMessage());
+		}
 
 		log.info("Stop");
 	}
