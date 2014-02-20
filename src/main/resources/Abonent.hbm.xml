@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="ru.darvell.ktv.logic">
 
-	<class name="Abonent" table="ABONENT">
+	<class name="Abonent" table="ABONENTS">
 
 		<id name="id" column="ABONENT_ID" type="java.lang.Long">
 			<generator class="increment"/>
@@ -18,8 +18,8 @@
 		<property name="passSer" column="PASS_SER"/>
 		<property name="passNumber" column="PASS_NUMBER"/>
 
-		<set name = "contracts">
-			<key column="CONTRACT_ID"/>
+		<set name = "contracts" inverse="true">
+			<key column="ABONENT_ID"/>
 			<one-to-many class="Contract"/>
 		</set>
 

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.darvell.ktv.logic">
+
+	<class name="Contract" table="CONTRACTS">
+
+		<id name = "id" column="CONTRACT_ID" type="java.lang.Long">
+			<generator class="increment"/>
+		</id>
+
+		<property name="dateStart" column="DATE_START"/>
+		<property name="dateStop" column="DATE_STOP"/>
+		<property name="dateCreate" column="DATE_CREATE"/>
+		<property name="number" column="NUMBER"/>
+
+		<many-to-one name="abonent"	class="Abonent" column="ABONENT_ID"/>
+
+	</class>
+
+</hibernate-mapping>
