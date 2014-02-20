@@ -34,17 +34,18 @@ public class Main {
 
 		try{
 			//Factory.getInstance().getAbonentDAO().addAbonent(abonent);
-			//Abonent abonent1 = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
+			Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
 
-			//log.info(abonent1.getLastName());
+			log.info(abonent1.getLastName());
+			//HibernateUtil.getSessionFactory().close();
 			//session.close();
 			//abonent1.setLastName("Петров");
 			//Factory.getInstance().getAbonentDAO().updateAbonent(abonent);
 
-			ArrayList<Abonent> abonents = (ArrayList) Factory.getInstance().getAbonentDAO().getAllAbonents();
-			for (int i = 0; i < abonents.size(); i++){
-				log.info(abonents.get(i).getLastName());
-			}
+			//ArrayList<Abonent> abonents = (ArrayList) Factory.getInstance().getAbonentDAO().getAllAbonents();
+			//for (int i = 0; i < abonents.size(); i++){
+			//	log.info(abonents.get(i).getLastName());
+			//}
 
 		}catch (Exception e){
 			log.error(e.getMessage());
