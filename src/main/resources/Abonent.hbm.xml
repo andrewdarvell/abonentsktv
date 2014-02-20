@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.darvell.ktv.logic">
+
+	<class name="Abonent" table="ABONENT">
+
+		<id name="id" column="ABONENT_ID" type="java.lang.Long">
+			<generator class="increment"/>
+		</id>
+
+		<property name="firstName" column = "FIRST_NAME"/>
+		<property name="lastName" column ="LAST_NAME" />
+		<property name="middleName" column="MIDDLE_NAME"/>
+		<property name="dateBirth" column="DATE_BIRTH"/>
+		<property name="passSer" column="PASS_SER"/>
+		<property name="passNumber" column="PASS_NUMBER"/>
+
+		<set name = "contracts">
+			<key column="CONTRACT_ID"/>
+			<one-to-many class="Contract"/>
+		</set>
+
+	</class>
+
+</hibernate-mapping>
