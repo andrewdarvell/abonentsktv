@@ -37,7 +37,7 @@ public class AbonentDAOImpl implements AbonentDAO{
 	}
 
 	@Override
-	public Collection getAllAbonents() throws SQLException {
+	public List getAllAbonents() throws SQLException {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		List abonens = session.createCriteria(Abonent.class).list();
