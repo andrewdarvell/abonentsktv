@@ -1,5 +1,7 @@
 package ru.darvell.ktv.logic.payments;
 
+import ru.darvell.ktv.logic.Contract;
+
 import java.math.BigDecimal;
 
 public class Payment {
@@ -7,6 +9,7 @@ public class Payment {
 	private BigDecimal summ;
 	private String comment;
 	private PaySystem paySystem;
+	private Contract contract;
 
 	public Payment() {
 	}
@@ -41,5 +44,13 @@ public class Payment {
 
 	public void setPaySystem(PaySystem paySystem) {
 		this.paySystem = paySystem;
+	}
+
+	public Contract getContract() {
+		return contract;
+	}
+
+	public void setContract(Contract contract) {
+		this.contract = contract;
 	}
 }

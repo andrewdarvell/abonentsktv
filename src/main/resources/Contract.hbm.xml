@@ -18,6 +18,11 @@
 
 		<many-to-one name="abonent"	class="Abonent" column="ABONENT_ID" not-null="true"/>
 
+		<set name = "payments" inverse="true" lazy="true">
+			<key column="CONTRACT_ID"/>
+			<one-to-many class="ru.darvell.ktv.logic.payments.Payment"/>
+		</set>
+
 	</class>
 
 </hibernate-mapping>

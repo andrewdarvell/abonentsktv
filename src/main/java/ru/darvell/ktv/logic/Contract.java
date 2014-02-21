@@ -1,6 +1,8 @@
 package ru.darvell.ktv.logic;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Contract {
 
@@ -10,6 +12,7 @@ public class Contract {
 	private Date dateCreate;
 	private String number;
 	private Abonent abonent = new Abonent();
+	private Set payments = new HashSet();
 
 	public Contract() {
 	}
@@ -61,5 +64,13 @@ public class Contract {
 
 	public void setAbonent(Abonent abonent) {
 		this.abonent = abonent;
+	}
+
+	public Set getPayments() {
+		return payments;
+	}
+
+	public void setPayments(Set payments) {
+		this.payments = payments;
 	}
 }

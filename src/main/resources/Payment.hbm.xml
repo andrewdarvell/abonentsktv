@@ -11,9 +11,10 @@
 			<generator class="increment"/>
 		</id>
 
-		<property name="summ" column = "DESCRIPTION" type="big_decimal" precision="23" scale="2"/>
+		<property name="summ" column = "SUMM" type="big_decimal" precision="23" scale="2"/>
 		<property name="comment" column="COMMENT"/>
 		<many-to-one name="paySystem" class="PaySystem" column="PAYSYSTEM_ID" not-null="true"/>
+		<many-to-one name="contract" class="ru.darvell.ktv.logic.Contract" column="CONTRACT_ID" not-null="true"/>
 
 	</class>
 
