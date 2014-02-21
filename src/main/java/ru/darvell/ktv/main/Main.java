@@ -5,8 +5,15 @@ import org.apache.log4j.xml.DOMConfigurator;
 import org.hibernate.Session;
 import ru.darvell.ktv.dao.Factory;
 import ru.darvell.ktv.dao.impl.AbonentDAOImplOne;
+import ru.darvell.ktv.dao.impl.ContractDAOImplOne;
 import ru.darvell.ktv.logic.Abonent;
+import ru.darvell.ktv.logic.Contract;
 import ru.darvell.ktv.util.HibernateUtil;
+
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 
 public class Main {
@@ -31,16 +38,50 @@ public class Main {
 		abonent1.setPassNumber("458324");
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
+		Contract contract = new Contract();
+		contract.setNumber("213213");
+		contract.setDateCreate(new Date(System.currentTimeMillis()));
+
+		//abonent1.addContract(contract);
+
+		//contract.setAbonent(abonent1);
+
 		try{
 
-			AbonentDAOImplOne.setSession(session);
+			Factory.getInstance().getAbonentDAO().setSession(session);
+			Factory.getInstance().getContractDAO().setSession(session);
+			//session.beginTransaction();
 
 			Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
+			//abonent.addContract(contract);
+			//ontract.setAbonent(abonent);
+
+			//Factory.getInstance().getAbonentDAO().saveOrUpdateAbonent(abonent);
+			//abonent1.addContract(contract);
+			//Factory.getInstance().getContractDAO().saveOrUpdateContract(contract);
+			Set<Contract> contractsTmp = abonent.getContracts();
+			log.info(contractsTmp.size());
+			Iterator iterator = contractsTmp.iterator();
+			while (iterator.hasNext()){
+				Contract contract1 = (Contract) iterator.next();
+				log.info(contract.getNumber());
+			}
+			//session.getTransaction().commit();
+
+
+
+			//abonent.addContract(contract);
+			//Factory.getInstance().getAbonentDAO().updateAbonent(abonent);
+			//Factory.getInstance().getContractDAO().addContract(contract);
+
+
+
+			//Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
 			//Factory.getInstance().getAbonentDAO2().addAbonent(abonent1);
 
 			//session.close();
 			//session.flush();
-			log.info(abonent.getLastName());
+			//log.info(abonent.getLastName());
 			//HibernateUtil.getSessionFactory().close();
 
 			//abonent1.setLastName("Петров");
@@ -52,6 +93,7 @@ public class Main {
 			//}
 
 		}catch (Exception e){
+			session.getTransaction().rollback();
 			log.error(e.getMessage());
 		}finally {
 			log.info("Close session");

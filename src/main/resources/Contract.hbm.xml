@@ -16,7 +16,7 @@
 		<property name="dateCreate" column="DATE_CREATE"/>
 		<property name="number" column="NUMBER"/>
 
-		<many-to-one name="abonent"	class="Abonent" column="ABONENT_ID"/>
+		<many-to-one name="abonent"	class="Abonent" column="ABONENT_ID" not-null="true"/>
 
 	</class>
 

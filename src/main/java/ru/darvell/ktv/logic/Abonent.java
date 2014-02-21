@@ -81,4 +81,12 @@ public class Abonent {
 	public void setContracts(Set contracts) {
 		this.contracts = contracts;
 	}
+
+	public void addContract(Contract contract){
+		this.contracts.add(contract);
+	}
+
+	public void delContract(Contract contract){
+		this.contracts.remove(contract);
+	}
 }

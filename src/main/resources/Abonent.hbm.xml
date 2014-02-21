@@ -18,7 +18,7 @@
 		<property name="passSer" column="PASS_SER"/>
 		<property name="passNumber" column="PASS_NUMBER"/>
 
-		<set name = "contracts" inverse="true">
+		<set name = "contracts" inverse="true" lazy="true">
 			<key column="ABONENT_ID"/>
 			<one-to-many class="Contract"/>
 		</set>
