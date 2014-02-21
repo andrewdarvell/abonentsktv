@@ -12,6 +12,7 @@ public class HibernateUtil {
 
 	private static SessionFactory sessionFactory = null;
 
+
 	static {
 		try {
 			Configuration configuration = new Configuration().configure();
