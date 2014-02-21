@@ -1,6 +1,7 @@
 package ru.darvell.ktv.dao;
 
 import ru.darvell.ktv.dao.impl.AbonentDAOImpl;
+import ru.darvell.ktv.dao.impl.AbonentDAOImplOne;
 
 
 public class Factory {
@@ -16,8 +17,19 @@ public class Factory {
 
 	public AbonentDAO getAbonentDAO(){
 		if (abonentDAO == null){
-			abonentDAO = new AbonentDAOImpl();
+			abonentDAO = new AbonentDAOImplOne();
 		}
 		return abonentDAO;
 	}
+
+
+
+	/*
+	public AbonentDAO getAbonentDAO2(){
+		if (abonentDAO == null){
+			abonentDAO = new AbonentDAOImplOne();
+		}
+		return abonentDAO;
+	}
+	*/
 }

@@ -4,11 +4,9 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.hibernate.Session;
 import ru.darvell.ktv.dao.Factory;
+import ru.darvell.ktv.dao.impl.AbonentDAOImplOne;
 import ru.darvell.ktv.logic.Abonent;
 import ru.darvell.ktv.util.HibernateUtil;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Main {
@@ -31,14 +29,20 @@ public class Main {
 		abonent1.setMiddleName("Сидорский");
 		abonent1.setPassSer("4322");
 		abonent1.setPassNumber("458324");
+		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		try{
-			//Factory.getInstance().getAbonentDAO().addAbonent(abonent);
-			Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
 
-			log.info(abonent1.getLastName());
-			//HibernateUtil.getSessionFactory().close();
+			AbonentDAOImplOne.setSession(session);
+
+			Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
+			//Factory.getInstance().getAbonentDAO2().addAbonent(abonent1);
+
 			//session.close();
+			//session.flush();
+			log.info(abonent.getLastName());
+			//HibernateUtil.getSessionFactory().close();
+
 			//abonent1.setLastName("Петров");
 			//Factory.getInstance().getAbonentDAO().updateAbonent(abonent);
 
@@ -49,9 +53,12 @@ public class Main {
 
 		}catch (Exception e){
 			log.error(e.getMessage());
+		}finally {
+			log.info("Close session");
+			session.close();
+
 		}
 
-		HibernateUtil.getSessionFactory().close();
 		log.info("Stop");
 	}
 }
