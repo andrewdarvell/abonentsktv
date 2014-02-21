@@ -33,6 +33,8 @@
 
 		<mapping resource="Abonent.hbm.xml"/>
 		<mapping resource="Contract.hbm.xml"/>
+		<mapping resource="Payment.hbm.xml"/>
+		<mapping resource="PaySystem.hbm.xml"/>
 
 	</session-factory>
 

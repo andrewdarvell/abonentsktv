@@ -52,20 +52,23 @@ public class Main {
 			Factory.getInstance().getContractDAO().setSession(session);
 			//session.beginTransaction();
 
-			Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
+			//Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
 			//abonent.addContract(contract);
 			//ontract.setAbonent(abonent);
 
+			Contract contract1 = Factory.getInstance().getContractDAO().getContractById(3L);
+			Abonent abonent = contract1.getAbonent();
+			log.info(abonent.getLastName());
 			//Factory.getInstance().getAbonentDAO().saveOrUpdateAbonent(abonent);
 			//abonent1.addContract(contract);
 			//Factory.getInstance().getContractDAO().saveOrUpdateContract(contract);
-			Set<Contract> contractsTmp = abonent.getContracts();
-			log.info(contractsTmp.size());
-			Iterator iterator = contractsTmp.iterator();
-			while (iterator.hasNext()){
-				Contract contract1 = (Contract) iterator.next();
-				log.info(contract.getNumber());
-			}
+			//Set<Contract> contractsTmp = abonent.getContracts();
+			//log.info(contractsTmp.size());
+			//Iterator iterator = contractsTmp.iterator();
+			//while (iterator.hasNext()){
+			//	Contract contract1 = (Contract) iterator.next();
+			//	log.info(contract.getNumber());
+			//}
 			//session.getTransaction().commit();
 
 

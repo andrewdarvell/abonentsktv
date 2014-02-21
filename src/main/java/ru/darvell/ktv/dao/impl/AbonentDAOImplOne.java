@@ -14,16 +14,12 @@ public class AbonentDAOImplOne implements AbonentDAO {
 
 	@Override
 	public void addAbonent(Abonent abonent) throws SQLException {
-		//session.beginTransaction();
 		session.save(abonent);
-		//session.getTransaction().commit();
 	}
 
 	@Override
 	public void updateAbonent(Abonent abonent) throws SQLException {
-		//session.beginTransaction();
 		session.update(abonent);
-		//session.getTransaction().commit();
 	}
 
 	@Override
@@ -44,9 +40,7 @@ public class AbonentDAOImplOne implements AbonentDAO {
 
 	@Override
 	public void deleteAbonent(Abonent abonent) throws SQLException {
-		//session.beginTransaction();
 		session.delete(abonent);
-		//session.getTransaction().commit();
 	}
 
 	@Override

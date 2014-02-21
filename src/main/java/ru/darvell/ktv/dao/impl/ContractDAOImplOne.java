@@ -13,16 +13,12 @@ public class ContractDAOImplOne implements ContractDAO{
 
 	@Override
 	public void addContract(Contract contract) throws SQLException {
-		//session.beginTransaction();
 		session.save(contract);
-		//session.getTransaction().commit();
 	}
 
 	@Override
 	public void updateContract(Contract contract) throws SQLException {
-		//session.beginTransaction();
 		session.update(contract);
-		//session.getTransaction().commit();
 	}
 
 	@Override
@@ -38,9 +34,7 @@ public class ContractDAOImplOne implements ContractDAO{
 
 	@Override
 	public void deleteContract(Contract contract) throws SQLException {
-		//session.beginTransaction();
 		session.delete(contract);
-		//session.getTransaction().commit();
 	}
 
 	@Override
