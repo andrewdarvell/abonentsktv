@@ -3,14 +3,12 @@ package ru.darvell.ktv.dao.impl;
 
 import org.hibernate.Session;
 import ru.darvell.ktv.dao.PaymentDAO;
-import ru.darvell.ktv.logic.Abonent;
-import ru.darvell.ktv.logic.Contract;
 import ru.darvell.ktv.logic.Payment;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class PaymentDAOImpl implements PaymentDAO{
+public class PaymentDAOImpl implements PaymentDAO {
 
 	private static Session session;
 
@@ -25,19 +23,19 @@ public class PaymentDAOImpl implements PaymentDAO{
 	}
 
 	@Override
+	public void saveOrUpdatePayment(Payment payment) throws SQLException {
+		session.saveOrUpdate(payment);
+	}
+
+	@Override
 	public Payment getPaymentByID(Long paymentId) throws SQLException {
-		return (Payment) session.load(Payment.class,paymentId);
+		return (Payment) session.load(Payment.class, paymentId);
 	}
 
 	@Override
 	public List getAllPayments() throws SQLException {
 		List payments = session.createCriteria(Payment.class).list();
 		return payments;
-	}
-
-	@Override
-	public List getAllPaymentsByContract(Contract contract) throws SQLException {
-		return null;  //To change body of implemented methods use File | Settings | File Templates.
 	}
 
 	@Override
