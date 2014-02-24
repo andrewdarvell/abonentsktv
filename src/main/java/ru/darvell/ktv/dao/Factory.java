@@ -49,15 +49,4 @@ public class Factory {
 		}
 		return contractDAO;
 	}
-
-
-
-	/*
-	public AbonentDAO getAbonentDAO2(){
-		if (abonentDAO == null){
-			abonentDAO = new AbonentDAOImpl();
-		}
-		return abonentDAO;
-	}
-	*/
 }
