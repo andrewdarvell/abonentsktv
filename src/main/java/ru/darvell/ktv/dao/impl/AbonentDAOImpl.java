@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class AbonentDAOImplOne implements AbonentDAO {
+public class AbonentDAOImpl implements AbonentDAO {
 
 	private static Session session;
 
@@ -50,6 +50,6 @@ public class AbonentDAOImplOne implements AbonentDAO {
 
 	@Override
 	public void setSession(Session session) {
-		AbonentDAOImplOne.session = session;
+		AbonentDAOImpl.session = session;
 	}
 }

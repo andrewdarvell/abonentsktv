@@ -20,7 +20,7 @@
 
 		<set name = "payments" inverse="true" lazy="true">
 			<key column="CONTRACT_ID"/>
-			<one-to-many class="ru.darvell.ktv.logic.payments.Payment"/>
+			<one-to-many class="ru.darvell.ktv.logic.Payment"/>
 		</set>
 
 	</class>

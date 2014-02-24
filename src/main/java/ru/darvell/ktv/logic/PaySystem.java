@@ -1,4 +1,4 @@
-package ru.darvell.ktv.logic.payments;
+package ru.darvell.ktv.logic;
 
 
 public class PaySystem {

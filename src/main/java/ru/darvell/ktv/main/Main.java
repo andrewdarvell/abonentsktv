@@ -4,16 +4,11 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.hibernate.Session;
 import ru.darvell.ktv.dao.Factory;
-import ru.darvell.ktv.dao.impl.AbonentDAOImplOne;
-import ru.darvell.ktv.dao.impl.ContractDAOImplOne;
 import ru.darvell.ktv.logic.Abonent;
 import ru.darvell.ktv.logic.Contract;
 import ru.darvell.ktv.util.HibernateUtil;
 
 import java.util.Date;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 
 public class Main {

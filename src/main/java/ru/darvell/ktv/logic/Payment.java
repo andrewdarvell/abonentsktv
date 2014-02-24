@@ -1,8 +1,7 @@
-package ru.darvell.ktv.logic.payments;
-
-import ru.darvell.ktv.logic.Contract;
+package ru.darvell.ktv.logic;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class Payment {
 	private long id;
@@ -10,6 +9,7 @@ public class Payment {
 	private String comment;
 	private PaySystem paySystem;
 	private Contract contract;
+	private Date payDate;
 
 	public Payment() {
 	}
@@ -52,5 +52,13 @@ public class Payment {
 
 	public void setContract(Contract contract) {
 		this.contract = contract;
+	}
+
+	public Date getPayDate() {
+		return payDate;
+	}
+
+	public void setPayDate(Date payDate) {
+		this.payDate = payDate;
 	}
 }

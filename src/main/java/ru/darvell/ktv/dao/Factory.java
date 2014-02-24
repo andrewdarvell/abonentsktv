@@ -1,14 +1,17 @@
 package ru.darvell.ktv.dao;
 
 
-import ru.darvell.ktv.dao.impl.AbonentDAOImplOne;
-import ru.darvell.ktv.dao.impl.ContractDAOImplOne;
+import ru.darvell.ktv.dao.impl.AbonentDAOImpl;
+import ru.darvell.ktv.dao.impl.ContractDAOImpl;
+import ru.darvell.ktv.dao.impl.PaymentDAOImpl;
 
 
 public class Factory {
 	private static AbonentDAO abonentDAO = null;
 	private static ContractDAO contractDAO = null;
+	private static PaymentDAO paymentDAO = null;
 	private static Factory instance = null;
+
 
 	public static synchronized Factory getInstance(){
 		if(instance == null){
@@ -17,16 +20,23 @@ public class Factory {
 		return instance;
 	}
 
+	public PaymentDAO getPaymentDAO(){
+		if (paymentDAO == null){
+			paymentDAO = new PaymentDAOImpl();
+		}
+		return paymentDAO;
+	}
+
 	public AbonentDAO getAbonentDAO(){
 		if (abonentDAO == null){
-			abonentDAO = new AbonentDAOImplOne();
+			abonentDAO = new AbonentDAOImpl();
 		}
 		return abonentDAO;
 	}
 
 	public ContractDAO getContractDAO(){
 		if (contractDAO == null){
-			contractDAO = new ContractDAOImplOne();
+			contractDAO = new ContractDAOImpl();
 		}
 		return contractDAO;
 	}
@@ -36,7 +46,7 @@ public class Factory {
 	/*
 	public AbonentDAO getAbonentDAO2(){
 		if (abonentDAO == null){
-			abonentDAO = new AbonentDAOImplOne();
+			abonentDAO = new AbonentDAOImpl();
 		}
 		return abonentDAO;
 	}

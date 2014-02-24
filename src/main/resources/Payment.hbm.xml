@@ -3,7 +3,7 @@
 		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="ru.darvell.ktv.logic.payments">
+<hibernate-mapping package="ru.darvell.ktv.logic">
 
 	<class name="Payment" table="PAYMENTS">
 
@@ -13,8 +13,9 @@
 
 		<property name="summ" column = "SUMM" type="big_decimal" precision="23" scale="2"/>
 		<property name="comment" column="COMMENT"/>
+		<property name="payDate" column="PAY_DATE"/>
 		<many-to-one name="paySystem" class="PaySystem" column="PAYSYSTEM_ID" not-null="true"/>
-		<many-to-one name="contract" class="ru.darvell.ktv.logic.Contract" column="CONTRACT_ID" not-null="true"/>
+		<many-to-one name="contract" class="Contract" column="CONTRACT_ID" not-null="true"/>
 
 	</class>
 

@@ -8,7 +8,7 @@ import ru.darvell.ktv.logic.Contract;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ContractDAOImplOne implements ContractDAO{
+public class ContractDAOImpl implements ContractDAO{
 	private static Session session;
 
 	@Override
@@ -49,6 +49,6 @@ public class ContractDAOImplOne implements ContractDAO{
 
 	@Override
 	public void setSession(Session session) {
-		ContractDAOImplOne.session = session;
+		ContractDAOImpl.session = session;
 	}
 }
