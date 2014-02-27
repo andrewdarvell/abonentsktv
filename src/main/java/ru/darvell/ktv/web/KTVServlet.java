@@ -19,6 +19,9 @@ public class KTVServlet extends HttpServlet {
 
 			PrintWriter out = response.getWriter();
 			out.println("<html><head><title>KTV servlet</title></head><body>");
+			out.println("</body></html>");
+			out.flush();
+			out.close();
 
 
 		} catch (Exception ex) {
