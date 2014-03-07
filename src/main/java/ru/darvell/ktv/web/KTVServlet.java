@@ -40,6 +40,7 @@ public class KTVServlet extends HttpServlet {
 
 			//Контент
 			out.println("<td id=\"page_body_content\">\"Правая колонка\"");
+			out.println("");
 
 			out.println("</table>");
 
