@@ -19,42 +19,9 @@ public class KTVServlet extends HttpServlet {
 
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>KTV servlet</title>");
-			out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"resources/css/page.css\">");
+			out.println(PageBuilder.getHeader());
+			out.println(PageBuilder.getFooter());
 
-			out.println("</head>");
-			out.println("<body>");
-			out.println("<table id=\"page\">");
-
-			//Заголовок страницы
-			out.println("<tr id=\"page_header\">");
-			out.println("</tr>");
-
-			//Тело страницы
-			out.println("<tr id=\"page_body\">");
-
-			//Меню страницы
-			out.println("<td id=\"page_body_menu\">\"Левая колонка\"");
-
-			out.println("</td>");
-
-			//Контент
-			out.println("<td id=\"page_body_content\">\"Правая колонка\"");
-			out.println("");
-
-			out.println("</table>");
-
-			out.println("</td>");
-			out.println("</tr>");
-
-			out.println("</tr>");
-
-			out.println("<tr id=\"page_footer\">");
-			out.println("</tr>");
-
-			out.println("</table>");
-
-			out.println("</body></html>");
 
 			out.flush();
 			out.close();
@@ -69,6 +36,5 @@ public class KTVServlet extends HttpServlet {
 				throw new ServletException(ex);
 			}
 		}
-
 	}
 }

@@ -11,6 +11,18 @@
 
 	<servlet-mapping>
 		<servlet-name>KTV Servlet</servlet-name>
-		<url-pattern>/ktvservlet</url-pattern>
+		<url-pattern>/ktv</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Abonents</servlet-name>
+		<servlet-class>ru.darvell.ktv.web.Abonents</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Abonents</servlet-name>
+		<url-pattern>/ktv/abonents</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>
