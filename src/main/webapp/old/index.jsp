@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
+<%
+    String redirectURL = "http://localhost:8080/AbonentsProjectKTV-1/ktv";
+    response.sendRedirect(redirectURL);
+%>
+
+
+
+
+
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
 <html>
     <head>
         <title>KTV servlet</title>
@@ -14,14 +25,14 @@
 
 
 			<tr id="page_body">
-			    <td id="page_body_menu">Меню
+			    <td id="page_body_menu">
                     <ul>
-                        <li><a href="abonents.jsp">Абоненты</a></li>
+                        <li><a href="/abonents?method=showall">Абоненты</a></li>
                         <li>Договора</li>
                     </ul>
 		    	</td>
 
-				<td id="page_body_content">Контент
+				<td id="page_body_content">
 			    </td>
 
 			</tr>

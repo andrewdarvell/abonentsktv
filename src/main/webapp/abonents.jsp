@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
     <head>
@@ -36,6 +37,17 @@
                             </tr>
                         </table>
 				    </form>
+
+                    <table>
+                        <c:forEach items="${abonents}" var="abonent">
+                            <tr>
+                                <td>${abonent.getLastName}</td>
+                                <td>${abonent.getLastName}</td>
+                                <td>${abonent.getLastName}</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+
 			    </td>
 
 			</tr>

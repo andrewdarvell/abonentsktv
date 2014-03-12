@@ -17,13 +17,13 @@ public class PageBuilder {
 				"" +
 				"" +
 				"<tr id=\"page_body\">" +
-				"    <td id=\"page_body_menu\">Меню" +
+				"    <td id=\"page_body_menu\">" +
 				"                    <ul>" +
 				"                        <li><a href=\"/AbonentsProjectKTV-1/ktv/abonents?method=printsearch\">Абоненты</a></li>" +
 				"                        <li>Договора</li>" +
 				"                    </ul>" +
 				"    </td>" +
-				"<td id=\"page_body_content\">Контент";
+				"<td id=\"page_body_content\">";
 		return result;
 	}
 

@@ -20,6 +20,7 @@ public class KTVServlet extends HttpServlet {
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println(PageBuilder.getHeader());
+			out.println("Я сервлет!!!!");
 			out.println(PageBuilder.getFooter());
 
 
