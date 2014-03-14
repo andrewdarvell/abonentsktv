@@ -6,11 +6,8 @@ import org.hibernate.Session;
 import ru.darvell.ktv.dao.Factory;
 import ru.darvell.ktv.logic.Abonent;
 import ru.darvell.ktv.logic.Contract;
-import ru.darvell.ktv.logic.PaySystem;
-import ru.darvell.ktv.logic.Payment;
 import ru.darvell.ktv.util.HibernateUtil;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -46,11 +43,12 @@ public class Main {
 
 		try {
 
-			//Factory.getInstance().getAbonentDAO().setSession(session);
+			Factory.getInstance().getAbonentDAO().setSession(session);
+
 			Factory.getInstance().getContractDAO().setSession(session);
 			Factory.getInstance().getPaySystemDAO().setSession(session);
 			Factory.getInstance().getPaymentDAO().setSession(session);
-
+			/*
 			Contract contract = Factory.getInstance().getContractDAO().getContractById(3L);
 			PaySystem paySystem = Factory.getInstance().getPaySystemDAO().getPaySystemByID(1L);
 
@@ -73,7 +71,21 @@ public class Main {
 			Factory.getInstance().getPaymentDAO().saveOrUpdatePayment(payment2);
 
 
-			//Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
+			Abonent abonent2 = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
+			log.info(abonent2.getLastName());
+
+
+			List list = session.createCriteria(Abonent.class).add(Restrictions.like("lastName", "%Ив%")).list();
+			Iterator iterator = list.iterator();
+			while (iterator.hasNext()){
+				Abonent abonent = (Abonent) iterator.next();
+				log.info(abonent.getLastName());
+			}
+			session.getTransaction().commit();
+            */
+			session.beginTransaction();
+			Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
+			log.info(abonent.getLastName());
 			//abonent.addContract(contract);
 			//ontract.setAbonent(abonent);
 
@@ -99,7 +111,7 @@ public class Main {
 
 			//Abonent abonent = Factory.getInstance().getAbonentDAO().getAbonentById(4L);
 			//Factory.getInstance().getAbonentDAO2().addAbonent(abonent1);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			//session.close();
 			//session.flush();
 			//log.info(abonent.getLastName());
