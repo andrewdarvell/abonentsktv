@@ -5,6 +5,7 @@
     <head>
         <title>KTV servlet</title>
         <link rel="stylesheet" type="text/css" href="resources/css/page.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/abonents.css">
     </head>
 
 	<body>
@@ -17,13 +18,14 @@
 			<tr id="page_body">
 			    <td id="page_body_menu">Меню
                     <ul>
-                        <li><a href="${approot}/abonents.jsp">Абоненты</a></li>
+                        <li><a href="abonents?method=showall">Абоненты</a></li>
                         <li>Договора</li>
                     </ul>
 		    	</td>
 
 				<td id="page_body_content">
-				    <form action = "abonents_search" method = "GET">
+
+                    <form action = "abonents_search" method = "GET">
                         <table>
                             <tr>
                                 <td>Фамилия</td>
@@ -35,18 +37,18 @@
                                     <input type = "submit" value = "Найти"/>
                                 <td>
                             </tr>
-                        </table>
-				    </form>
-
-                    <table>
-                        <c:forEach items="${abonents}" var="abonent">
-                            <tr>
-                                <td>${abonent.getLastName}</td>
-                                <td>${abonent.getLastName}</td>
-                                <td>${abonent.getLastName}</td>
-                            </tr>
-                        </c:forEach>
                     </table>
+
+                    <table id = "abonents_list">
+                    	<c:forEach items="${abonentsList}" var="abonent">
+                    	    <tr>
+                    	        <td>${abonent.lastName}</td>
+                    	        <td>${abonent.firstName}</td>
+                    	        <td>${abonent.middleName}</td>
+                    	    </tr>
+                    	</c:forEach>
+                    </table>
+
 
 			    </td>
 

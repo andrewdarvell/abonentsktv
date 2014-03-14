@@ -120,7 +120,7 @@ public class Abonents extends HttpServlet {
 			AbonentDAO abonentDAO = Factory.getInstance().getAbonentDAO();
 			abonentDAO.setSession(session);
 			List list = abonentDAO.getAllAbonents();
-			request.setAttribute("abonents", list);
+			request.setAttribute("abonentsList", list);
 			request.getRequestDispatcher("abonents.jsp").forward(request, resp);
 
 		} catch (Exception e) {
@@ -129,5 +129,20 @@ public class Abonents extends HttpServlet {
 			session.close();
 		}
 	}
+	/*
+	<form action = "abonents_search" method = "GET">
+                        <table>
+                            <tr>
+                                <td>Фамилия</td>
+                                <td><input type = "text" name = "first_name" value = "" size = "40"/></td>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td>
+                                    <input type = "submit" value = "Найти"/>
+                                <td>
+                            </tr>
+                        </table>
 
+	*/
 }

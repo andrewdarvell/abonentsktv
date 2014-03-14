@@ -14,9 +14,9 @@
 
 
 			<tr id="page_body">
-			    <td id="page_body_menu">
+			    <td id="page_body_menu">Меню
                     <ul>
-                        <li><a href="/abonents?method=showall">Абоненты</a></li>
+                        <li><a href="abonents?method=showall">Абоненты</a></li>
                         <li>Договора</li>
                     </ul>
 		    	</td>
